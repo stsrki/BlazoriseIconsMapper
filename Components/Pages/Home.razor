@@ -1,0 +1,43 @@
+﻿@page "/"
+@using BlazoriseIconsMapper.Models
+<PageTitle>Home</PageTitle>
+
+<Row>
+    <Column>
+        <Heading>Icon Mapper</Heading>
+    </Column>
+</Row>
+
+<Row>
+    <Column ColumnSize="ColumnSize.IsAuto">
+        <Button Color="Color.Primary" Clicked="@DownloadFontAwesome">
+            Download FontAwesome
+        </Button>
+        <Paragraph>
+            @FontAwesomeDownloadStatus
+        </Paragraph>
+    </Column>
+    <Column ColumnSize="ColumnSize.IsAuto">
+        <Button Color="Color.Primary" Clicked="@DownloadFabricCore">
+            Download Fabric Core
+        </Button>
+        <Paragraph>
+            @FabricCoreDownloadStatus
+        </Paragraph>
+    </Column>
+    <Column ColumnSize="ColumnSize.IsAuto">
+        <Button Color="Color.Primary" Clicked="@MapIcons">
+            Map Icons
+        </Button>
+    </Column>
+</Row>
+
+<Row>
+    <Column>
+        <DataGrid TItem="BlazoriseIcon" Data="@BlazoriseIcons" Virtualize PageSize="20">
+            <DataGridColumns>
+                <DataGridColumn Field="Name" />
+            </DataGridColumns>
+        </DataGrid>
+    </Column>
+</Row>
